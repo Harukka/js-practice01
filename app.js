@@ -39,11 +39,23 @@ document.addEventListener('DOMContentLoaded',() =>{
         }
 
     }
+    function movePlatforms(){
+        if (doodlerBottomSpace > 200){
+            platforms.forEach(Platform => {
+                Platform.bottom -= 4;
+                let visual = Platform.visual;
+                visual.style.bottom = Platform.bottom + 'px';
+
+            })
+        }
+
+    }
 
     function start(){
         if(!isGameOver){
             createDoodler();
             createPlatforms();
+            setInterval(movePlatforms,30);
         }
     }
     
